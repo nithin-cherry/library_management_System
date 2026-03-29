@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/nithin-cherry/library_management_System#readme",
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.2.1"
   }
 }
