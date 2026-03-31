@@ -29,14 +29,29 @@ function displayBooks(books) {
 
         const status = book.availableCopies > 0 ? "Available" : "Not Available";
 
-        div.innerHTML = `
+        const ava = book.availableCopies;
+ div.innerHTML = `
+    <div class="book-card">
+
+        <img class="img" src="${book.url}" alt="${book.title}">
+
+        <div class="book-info">
             <h3>${book.title}</h3>
             <p>Status: ${status}</p>
-            <button onclick="issueBook(${book.id})">Issue Book</button>
-            <hr>
-        `;
+            <p>Available books: ${ava}</p>
+<div class="btn-class">
+            <button class="btn" onclick="issueBook(${book.id})">Issue Book</button>
+            <button class="btn" onclick="returnBook(${book.id})">Return Book</button>
+            </div>
+        </div>
+
+    </div>
+
+    <hr>
+`;
 
         container.appendChild(div);
+        
     });
 }
 
@@ -58,6 +73,22 @@ async function issueBook(bookId) {
     loadBooks();
 }
 
+async function returnBook(bookId) {
+
+    const response = await fetch("http://localhost:3000/returnBook", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ bookId })
+    });
+
+    const data = await response.json();
+
+    alert(data.message);
+
+    loadBooks(); 
+}
 
 document.getElementById("book").addEventListener("input", function () {
 
@@ -69,6 +100,5 @@ document.getElementById("book").addEventListener("input", function () {
 
     displayBooks(filteredBooks);
 });
-
 
 loadBooks();

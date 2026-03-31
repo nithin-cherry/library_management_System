@@ -1,5 +1,7 @@
 body{
-    background-color:orange;
+    background-color:rgb(200, 193, 180);
+    
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 
 }
 h1{
@@ -31,8 +33,72 @@ h1{
 }
 
 .made{
-    max-width: 8%;
+    max-width: 4%;
     position:absolute;
     top:5px;
     left:5px;
+}
+
+.booklist{
+    display:block;
+    border:2px solid black;
+    background-color: rgb(255, 255, 255);
+    padding:10px;
+    border-radius :4px;
+}
+.books{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border:2px solid rgb(0, 0, 0);
+    background-color:rgb(127, 126, 126);
+    padding:5px;
+    border-radius:4px;
+
+    margin:black;
+
+}
+
+.btn{
+    background-color:rgb(126, 126, 126);
+    display:flex;
+
+
+    font-weight:1000;
+    color:rgb(231, 231, 231);
+    border-radius : 2px;
+    border-bottom:3px solid black;
+    border-left:3px solid black;
+    padding: 7px;
+    margin-right:10px;
+}
+
+.btn-class{
+display:flex;
+flex-direction: row;
+
+}
+
+
+.btn:hover{
+    transform:scale(1.1);
+}
+.book-card{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    border:1px solid black;
+    padding:20px;
+}
+
+.img{
+    width:120px;
+    height:160px;
+    object-fit:cover;
+    padding-right:200px;
+    padding-left:20px;
+   
+}
+
+.book-info{
+    display:flex;
+    flex-direction:column;
 }
