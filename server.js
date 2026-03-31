@@ -57,6 +57,26 @@ app.post("/issue-book", (req, res) => {
 
 });
 
+app.post("/returnBook", (req, res) => {
+
+    const bookId = Number(req.body.bookId);
+
+    const book = books.find(b => b.id === bookId);
+
+    if (!book) {
+        return res.json({ message: "Book not found" });
+    }
+
+    if (book.availableCopies === book.totalCopies) {
+        return res.json({ message: "All books already returned" });
+    }
+
+    book.availableCopies++;
+
+    res.json({ message: "Book returned successfully" });
+
+});
+
 
 app.listen(3000, () => {
 
